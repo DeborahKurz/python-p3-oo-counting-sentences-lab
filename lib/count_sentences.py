@@ -14,3 +14,27 @@ class MyString:
       self._value = value
     else:
       print("The value must be a string.")
+
+  def is_sentence(self):
+    if self.value.endswith("."):
+      return True
+    else:
+      return False
+    
+  def is_question(self):
+    if self.value.endswith("?"):
+      return True
+    else:
+      return False
+  
+  def is_exclamation(self):
+    if self.value.endswith("!"):
+      return True
+    else:
+      return False
+    
+  def count_sentences(self):
+    replace = self.value.replace('.', '|').replace('?', '|').replace('!', '|')
+    split = replace.split('|')
+    sentences = [sentence for sentence in split if sentence]
+    return len(sentences)
